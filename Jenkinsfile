@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'npm install -g appcenter-cli@2.6.3'
+                sh 'npm install'
             }
         }
         stage('Deliver') { 
