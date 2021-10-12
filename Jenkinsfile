@@ -9,8 +9,6 @@ pipeline {
         stage('Build') { 
             steps {
                 sh 'npm install' 
-                sh 'npm rebuild'
-                sh 'npm start'
             }
         }
         stage('Deliver') { 
