@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'npm install -g --save dompurify@2.0.8 redoc-cli'
+                sh 'npm install'
             }
         }
         stage('Deliver') { 
