@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'mrts/docker-python-nodejs-google-chrome'
+            image 'node:lts-buster-slim'
             args '-p 4100:4100'
         }
     }
