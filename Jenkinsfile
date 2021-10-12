@@ -8,10 +8,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'docker login'
-                sh 'mkdir /.npm'
-                sh 'chown -R 995:991 "/.npm"'
-                sh 'npm install -g npm'
+                sh 'npm install'
             }
         }
         stage('Deliver') { 
