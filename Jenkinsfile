@@ -1,21 +1,53 @@
 pipeline {
+
     agent {
+
         docker {
-            image 'node:lts-buster-slim' 
-            args '-p 3000:3000' 
+
+            image 'mrts/docker-python-nodejs-google-chrome'
+
+            args '-p 3000:3000'
+
         }
+
     }
+
+    environment {
+
+        HOME="."
+
+        CI = 'true'
+
+    }
+
     stages {
-        stage('Build') { 
+
+        stage('Build') {
+
             steps {
+
                 sh 'npm install'
+
             }
+
         }
-        stage('Deliver') { 
+
+
+
+        stage('run') {
+
             steps {
-                sh './jenkins/scripts/deliver.sh' 
-                input message: 'Finished using the web site? (Click "Proceed" to continue)' 
-                sh './jenkins/scripts/kill.sh' 
+
+                sh 'npm start &'
+
+            }
+
+        }
+        stage('Deliver') {
+            steps {
+                sh './jenkins/scripts/deliver.sh'
+                input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                sh './jenkins/scripts/kill.sh'
             }
         }
     }
