@@ -8,8 +8,11 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
+                sh 'npm config set prefix '~/.npm-global''
+                sh 'source ~/.profile'
+                
                 sh 'sudo chown -R 995:991 "/.npm"'
-                sh 'npm install' 
+                sh 'npm install -g jshint' 
             }
         }
         stage('Deliver') { 
