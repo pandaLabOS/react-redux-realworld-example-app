@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'sudo npm install -g create-react-app'
+                sh 'npm install -g npm'
             }
         }
         stage('Deliver') { 
