@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            sudo npm cache clean --force
+            sudo chown -R 995:991 "/.npm"
             image 'node:lts-buster-slim' 
             args '-p 3000:3000' 
         }
